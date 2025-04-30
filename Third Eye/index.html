@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Marathi Rashi Crystal Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary-color: #0066cc;
+      --accent-color: #e0f3ff;
+      --text-color: #333;
+      --bg-color: #f9fafe;
+      --card-bg: #ffffff;
+      --border-radius: 12px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .container {
+      max-width: 480px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary-color);
+      font-size: 1.7rem;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    select,
+    input[type="date"] {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: var(--border-radius);
+      background: #fff;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 16px;
+      font-size: 1.1rem;
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #004c99;
+    }
+
+    #result {
+      margin-top: 30px;
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    #result h3 {
+      margin-top: 0;
+      color: var(--primary-color);
+      font-size: 1.3rem;
+    }
+
+    #result h4 {
+      margin-top: 18px;
+      color: #444;
+      font-size: 1.1rem;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    @media screen and (max-width: 480px) {
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      label {
+        font-size: 1rem;
+      }
+
+      select,
+      input[type="date"] {
+        font-size: 1rem;
+      }
+
+      button {
+        font-size: 1rem;
+      }
+
+      #result {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>🔮 Marathi Rashi - Crystal Guide</h2>
+
+    <label for="birthdate">Enter Your Birthdate:</label>
+    <input type="date" id="birthdate">
+
+    <label for="rashi">Select Your Rashi:</label>
+    <select id="rashi">
+      <option value="">-- Select Rashi --</option>
+      <option value="मेष">मेष</option>
+      <option value="वृषभ">वृषभ</option>
+      <option value="मिथुन">मिथुन</option>
+      <option value="कर्क">कर्क</option>
+      <option value="सिंह">सिंह</option>
+      <option value="कन्या">कन्या</option>
+      <option value="तुला">तुला</option>
+      <option value="वृश्चिक">वृश्चिक</option>
+      <option value="धनु">धनु</option>
+      <option value="मकर">मकर</option>
+      <option value="कुंभ">कुंभ</option>
+      <option value="मीन">मीन</option>
+    </select>
+
+    <button onclick="showRashiDetails()">Get Crystal Guide</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const rashiData = {
+      "मेष": {
+        english: "Aries", element: "Fire",
+        crystals: {
+          health: "Bloodstone", prosperity: "Pyrite", willpower: "Carnelian", money: "Citrine",
+          peace: "Blue Lace Agate", focus: "Hematite", relationships: "Rose Quartz",
+          protection: "Black Tourmaline", emotional: "Carnelian", confidence: "Sunstone", career: "Red Jasper"
+        }
+      },
+      "वृषभ": {
+        english: "Taurus", element: "Earth",
+        crystals: {
+          health: "Green Aventurine", prosperity: "Jade", willpower: "Tiger’s Eye", money: "Malachite",
+          peace: "Lepidolite", focus: "Fluorite", relationships: "Rose Quartz", protection: "Smoky Quartz",
+          emotional: "Rhodonite", confidence: "Carnelian", career: "Amazonite"
+        }
+      },
+      "मिथुन": {
+        english: "Gemini", element: "Metal",
+        crystals: {
+          health: "Agate", prosperity: "Green Aventurine", willpower: "Citrine", money: "Tiger’s Eye",
+          peace: "Howlite", focus: "Sodalite", relationships: "Chrysocolla", protection: "Labradorite",
+          emotional: "Moonstone", confidence: "Citrine", career: "Blue Apatite"
+        }
+      },
+      "कर्क": {
+        english: "Cancer", element: "Water",
+        crystals: {
+          health: "Moonstone", prosperity: "Green Jade", willpower: "Carnelian", money: "Emerald",
+          peace: "Aquamarine", focus: "Clear Quartz", relationships: "Moonstone", protection: "Obsidian",
+          emotional: "Lepidolite", confidence: "Citrine", career: "Blue Calcite"
+        }
+      },
+      "सिंह": {
+        english: "Leo", element: "Fire",
+        crystals: {
+          health: "Amber", prosperity: "Tiger’s Eye", willpower: "Sunstone", money: "Citrine",
+          peace: "Amethyst", focus: "Carnelian", relationships: "Rose Quartz", protection: "Black Onyx",
+          emotional: "Sunstone", confidence: "Carnelian", career: "Pyrite"
+        }
+      },
+      "कन्या": {
+        english: "Virgo", element: "Earth",
+        crystals: {
+          health: "Amazonite", prosperity: "Peridot", willpower: "Garnet", money: "Green Aventurine",
+          peace: "Blue Lace Agate", focus: "Fluorite", relationships: "Jade", protection: "Obsidian",
+          emotional: "Lepidolite", confidence: "Citrine", career: "Clear Quartz"
+        }
+      },
+      "तुला": {
+        english: "Libra", element: "Metal",
+        crystals: {
+          health: "Rose Quartz", prosperity: "Citrine", willpower: "Lapis Lazuli", money: "Malachite",
+          peace: "Amethyst", focus: "Sodalite", relationships: "Kunzite", protection: "Smoky Quartz",
+          emotional: "Moonstone", confidence: "Labradorite", career: "Ametrine"
+        }
+      },
+      "वृश्चिक": {
+        english: "Scorpio", element: "Water",
+        crystals: {
+          health: "Obsidian", prosperity: "Garnet", willpower: "Carnelian", money: "Black Tourmaline",
+          peace: "Lepidolite", focus: "Hematite", relationships: "Rhodonite", protection: "Jet",
+          emotional: "Labradorite", confidence: "Tiger’s Eye", career: "Topaz"
+        }
+      },
+      "धनु": {
+        english: "Sagittarius", element: "Fire",
+        crystals: {
+          health: "Turquoise", prosperity: "Topaz", willpower: "Amethyst", money: "Citrine",
+          peace: "Blue Topaz", focus: "Lapis Lazuli", relationships: "Chrysoprase", protection: "Obsidian",
+          emotional: "Sodalite", confidence: "Sunstone", career: "Aventurine"
+        }
+      },
+      "मकर": {
+        english: "Capricorn", element: "Earth",
+        crystals: {
+          health: "Garnet", prosperity: "Pyrite", willpower: "Hematite", money: "Onyx",
+          peace: "Smoky Quartz", focus: "Clear Quartz", relationships: "Emerald", protection: "Black Tourmaline",
+          emotional: "Obsidian", confidence: "Carnelian", career: "Tiger’s Eye"
+        }
+      },
+      "कुंभ": {
+        english: "Aquarius", element: "Metal",
+        crystals: {
+          health: "Amethyst", prosperity: "Aquamarine", willpower: "Garnet", money: "Fluorite",
+          peace: "Angelite", focus: "Labradorite", relationships: "Rose Quartz", protection: "Hematite",
+          emotional: "Aquamarine", confidence: "Sodalite", career: "Kyanite"
+        }
+      },
+      "मीन": {
+        english: "Pisces", element: "Water",
+        crystals: {
+          health: "Amethyst", prosperity: "Turquoise", willpower: "Sunstone", money: "Aquamarine",
+          peace: "Moonstone", focus: "Fluorite", relationships: "Rhodochrosite", protection: "Black Tourmaline",
+          emotional: "Blue Lace Agate", confidence: "Carnelian", career: "Lapis Lazuli"
+        }
+      }
+    };
+
+    function capitalize(word) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    }
+
+    function showRashiDetails() {
+      const rashi = document.getElementById("rashi").value;
+      const dob = document.getElementById("birthdate").value;
+
+      if (!rashi) {
+        alert("Please select a Rashi.");
+        return;
+      }
+
+      const data = rashiData[rashi];
+      let crystalList = "<ul>";
+      for (let category in data.crystals) {
+        crystalList += `<li><strong>${capitalize(category)}:</strong> ${data.crystals[category]}</li>`;
+      }
+      crystalList += "</ul>";
+
+      document.getElementById("result").innerHTML = `
+        <h3>Rashi: ${rashi} (${data.english})</h3>
+        <p><strong>Element:</strong> ${data.element}</p>
+        <h4>Recommended Crystals:</h4>
+        ${crystalList}
+      `;
+    }
+  </script>
+</body>
+</html>
