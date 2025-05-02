@@ -231,7 +231,7 @@ h2 {
   background-image: url("../images/dots-light.svg");
   background-size: contain;
   background-repeat: no-repeat;
-  right: -100px;
+  right: 10px;
   top: -0px;
 }
 
